@@ -1,0 +1,18 @@
+{
+  "stations": [
+    {
+      "name": "NRK MP3",
+      "brand": "NRK",
+      "source": "https://lyd.nrk.no/nrk_radio_mp3_mp3_h",
+      "enpoint": "nrk_radio_mp3_mp3_h",
+      "station_image": "src/assets/img/nrkMP3.webp"
+    },
+    {
+      "name": "NRK Sport",
+      "brand": "NRK",
+      "source": "https://lyd.nrk.no/nrk_radio_sport_mp3_l",
+      "enpoint": "nrk_radio_sport_mp3_l",
+      "station_image": "src/assets/img/nrkSporrt.png"
+    }
+  ]
+}
