@@ -6,13 +6,14 @@ import Play from '@renderer/assets/icons/Play';
 
 interface Props {
   audio: HTMLAudioElement;
+  stations: number;
   station: {
     station: number;
     setStation: Dispatch<SetStateAction<number>>;
   };
 }
 
-const AudioControls = ({ audio, station }: Props) => {
+const AudioControls = ({ audio, station, stations }: Props) => {
   const [isPlaying, setPlaying] = useState<boolean>(false);
 
   const handlePlayPause = () => {
@@ -27,9 +28,12 @@ const AudioControls = ({ audio, station }: Props) => {
     }
   };
 
+  console.log(station.station, stations - 1);
   const nextStation = () => {
-    setPlaying(false);
-    station.setStation(station.station + 1);
+    if (station.station < stations - 1) {
+      setPlaying(false);
+      station.setStation(station.station + 1);
+    }
   };
 
   const previousStation = () => {

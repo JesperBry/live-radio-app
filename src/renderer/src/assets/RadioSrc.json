@@ -5,14 +5,35 @@
       "brand": "NRK",
       "source": "https://lyd.nrk.no/nrk_radio_mp3_mp3_h",
       "enpoint": "nrk_radio_mp3_mp3_h",
-      "station_image": "src/assets/img/nrkMP3.webp"
+      "station_image": "nrkMP3.webp"
     },
     {
       "name": "NRK Sport",
       "brand": "NRK",
       "source": "https://lyd.nrk.no/nrk_radio_sport_mp3_l",
       "enpoint": "nrk_radio_sport_mp3_l",
-      "station_image": "src/assets/img/nrkSporrt.png"
+      "station_image": "nrkSport.webp"
+    },
+    {
+      "name": "NRK P3",
+      "brand": "NRK",
+      "source": "https://lyd.nrk.no/nrk_radio_p3_mp3_h",
+      "enpoint": "nrk_radio_p3_mp3_h",
+      "station_image": "nrkP3.webp"
+    },
+    {
+      "name": "NRK Nyheter",
+      "brand": "NRK",
+      "source": "https://lyd.nrk.no/nrk_radio_alltid_nyheter_mp3_h",
+      "enpoint": "nrk_radio_alltid_nyheter_mp3_h",
+      "station_image": "NRK_Nyheter.webp"
+    },
+    {
+      "name": "Radio Norge",
+      "brand": "Radio Norge",
+      "source": "https://live-bauerno.sharp-stream.com/radionorge_no_mp3?aw_0_1st.bauer_loggedin=false&aw_0_1st.playerid=BMUK_inpage_html5&aw_0_1st.skey=1643115502&aw_0_req.userConsentV2=CPTD-7ZPTD-7ZAGABCENB-CsAP_AAAAAAB&direct=true",
+      "enpoint": "",
+      "station_image": "radio_norge.webp"
     }
   ]
 }
