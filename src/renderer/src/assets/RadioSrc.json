@@ -95,6 +95,24 @@
       "brand": "Radio topp 40",
       "source": "https://live-bauerno.sharp-stream.com/top40_no_mp3",
       "station_image": "radio_topp-40.webp"
+    },
+    {
+      "name": "NRK P13",
+      "brand": "NRK",
+      "source": "https://lyd.nrk.no/nrk_radio_p13_mp3_m",
+      "station_image": "nrk_p13.webp"
+    },
+    {
+      "name": "NRK Klassisk",
+      "brand": "NRK",
+      "source": "https://lyd.nrk.no/nrk_radio_klassisk_mp3_h",
+      "station_image": "nrk_klassisk.webp"
+    },
+    {
+      "name": "NRK Super",
+      "brand": "NRK",
+      "source": "https://lyd.nrk.no/nrk_super_mp3_h",
+      "station_image": "nrk_super.webp"
     }
   ]
 }
