@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction, useState } from 'react';
+import { Dispatch, SetStateAction, useEffect, useState } from 'react';
 import Backward from '@renderer/assets/icons/Backward';
 import Forward from '@renderer/assets/icons/Forward';
 import Pause from '@renderer/assets/icons/Pause';
@@ -16,6 +16,9 @@ interface Props {
 
 const AudioControls = ({ audio, station, stations }: Props) => {
   const [isPlaying, setPlaying] = useState<boolean>(false);
+  const [disableNext, setDisableNext] = useState<boolean>(false);
+  const [disablePrev, setDisablePrev] = useState<boolean>(false);
+  const disableStyle = 'opacity-50 cursor-not-allowed';
 
   const handlePlayPause = () => {
     if (audio !== null) {
@@ -45,11 +48,29 @@ const AudioControls = ({ audio, station, stations }: Props) => {
     }
   };
 
+  useEffect(() => {
+    checkDisable();
+  });
+
+  const checkDisable = () => {
+    if (station.station === stations - 1) {
+      setDisableNext(true);
+    } else if (station.station === 0) {
+      setDisablePrev(true);
+    } else {
+      setDisableNext(false);
+      setDisablePrev(false);
+    }
+  };
+
   return (
     <div className="flex p-8 space-x-8">
       <button
         onClick={() => previousStation()}
-        className="transform active:scale-75 transition-transform"
+        className={`transform active:scale-75 transition-transform ${
+          disablePrev ? disableStyle : ''
+        }`}
+        disabled={disablePrev}
       >
         <Backward size="1.5rem" className="text-neutral-50" />
       </button>
@@ -65,7 +86,10 @@ const AudioControls = ({ audio, station, stations }: Props) => {
       </button>
       <button
         onClick={() => nextStation()}
-        className="transform active:scale-75 transition-transform"
+        className={`transform active:scale-75 transition-transform ${
+          disableNext ? disableStyle : ''
+        }`}
+        disabled={disableNext}
       >
         <Forward size="1.5rem" className="text-neutral-50" />
       </button>
