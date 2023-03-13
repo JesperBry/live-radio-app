@@ -18,6 +18,7 @@ const App = () => {
   ).href;
 
   const audioSrc = radioStations?.stations[station].source;
+  const stationName = radioStations?.stations[station].name;
 
   const audio: Howl = new Howl({
     src: [audioSrc],
@@ -29,7 +30,12 @@ const App = () => {
       <StationContext.Provider value={{ station, setStation }}>
         <AppContainer imgSrc={imgURL}>
           <Navbar />
-          <AudioPlayer img={imgURL} stations={maxStations} station={{ station, setStation }} />
+          <AudioPlayer
+            img={imgURL}
+            stations={maxStations}
+            station={{ station, setStation }}
+            name={stationName}
+          />
         </AppContainer>
       </StationContext.Provider>
     </AudioContext.Provider>

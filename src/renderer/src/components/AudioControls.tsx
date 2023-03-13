@@ -59,8 +59,10 @@ const AudioControls = ({ station, stations }: Props) => {
   const checkDisable = () => {
     if (station.station === stations - 1) {
       setDisableNext(true);
+      setDisablePrev(false);
     } else if (station.station === 0) {
       setDisablePrev(true);
+      setDisableNext(false);
     } else {
       setDisableNext(false);
       setDisablePrev(false);

@@ -27,13 +27,11 @@ const Sidebar = ({ sidebar }: Props) => {
     <>
       <aside
         ref={ref}
-        id="default-sidebar"
         className={`absolute inset-y-0 right-0 z-40 w-64 h-screen transition-transform ${
           sidebar.showSidebar ? 'translate-x-0' : 'translate-x-full'
         } `}
-        aria-label="Sidebar"
       >
-        <div className="h-full px-3 py-10 overflow-y-auto bg-neutral-800">
+        <div className="h-full px-3 py-10 overflow-y-auto bg-neutral-900">
           <ul className="space-y-1">
             {radioStations.stations.map((station, index) => {
               return (
@@ -43,12 +41,9 @@ const Sidebar = ({ sidebar }: Props) => {
                   }}
                   key={station.name}
                 >
-                  <a
-                    href="#"
-                    className="flex items-center p-2 text-base font-normal text-neutral-50 rounded-lg hover:bg-neutral-700"
-                  >
-                    <span className="ml-3">{station.name}</span>
-                  </a>
+                  <span className="ml-3 flex items-center p-2 text-base font-normal text-neutral-50 rounded-lg hover:bg-neutral-700">
+                    {station.name}
+                  </span>
                 </li>
               );
             })}

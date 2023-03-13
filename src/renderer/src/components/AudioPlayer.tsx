@@ -3,6 +3,7 @@ import AudioControls from './AudioControls';
 
 interface Props {
   img: string;
+  name: string;
   stations: number;
   station: {
     station: number;
@@ -10,10 +11,10 @@ interface Props {
   };
 }
 
-const AudioPlayer = ({ img, station, stations }: Props) => {
+const AudioPlayer = ({ img, station, stations, name }: Props) => {
   return (
     <div className="flex justify-center items-center h-screen flex-col">
-      <img className="w-60 h-auto rounded-md bg-white" src={img} alt="nrkMP3" />
+      <img className="w-60 h-auto rounded-md bg-white" src={img} alt={name} />
       <AudioControls station={station} stations={stations} />
     </div>
   );
