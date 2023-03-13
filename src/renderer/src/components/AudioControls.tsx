@@ -1,12 +1,11 @@
-import { Dispatch, SetStateAction, useEffect, useState } from 'react';
+import { Dispatch, SetStateAction, useContext, useEffect, useState } from 'react';
 import Backward from '@renderer/assets/icons/Backward';
 import Forward from '@renderer/assets/icons/Forward';
 import Pause from '@renderer/assets/icons/Pause';
 import Play from '@renderer/assets/icons/Play';
-import { Howl } from 'howler';
+import AudioContext from '@renderer/utils/audioContext';
 
 interface Props {
-  audio: Howl;
   stations: number;
   station: {
     station: number;
@@ -14,11 +13,12 @@ interface Props {
   };
 }
 
-const AudioControls = ({ audio, station, stations }: Props) => {
+const AudioControls = ({ station, stations }: Props) => {
   const [isPlaying, setPlaying] = useState<boolean>(false);
   const [disableNext, setDisableNext] = useState<boolean>(false);
   const [disablePrev, setDisablePrev] = useState<boolean>(false);
   const disableStyle = 'opacity-50 cursor-not-allowed';
+  const audio = useContext(AudioContext);
 
   const handlePlayPause = () => {
     if (audio !== null) {
@@ -51,6 +51,10 @@ const AudioControls = ({ audio, station, stations }: Props) => {
   useEffect(() => {
     checkDisable();
   });
+
+  useEffect(() => {
+    setPlaying(audio.playing());
+  }, [audio]);
 
   const checkDisable = () => {
     if (station.station === stations - 1) {

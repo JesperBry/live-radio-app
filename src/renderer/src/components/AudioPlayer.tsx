@@ -1,10 +1,8 @@
 import { Dispatch, SetStateAction } from 'react';
 import AudioControls from './AudioControls';
-import { Howl } from 'howler';
 
 interface Props {
   img: string;
-  src: string;
   stations: number;
   station: {
     station: number;
@@ -12,16 +10,11 @@ interface Props {
   };
 }
 
-const AudioPlayer = ({ img, src, station, stations }: Props) => {
-  const channel: Howl = new Howl({
-    src: [src],
-    html5: true
-  });
-
+const AudioPlayer = ({ img, station, stations }: Props) => {
   return (
     <div className="flex justify-center items-center h-screen flex-col">
       <img className="w-60 h-auto rounded-md bg-white" src={img} alt="nrkMP3" />
-      <AudioControls audio={channel} station={station} stations={stations} />
+      <AudioControls station={station} stations={stations} />
     </div>
   );
 };

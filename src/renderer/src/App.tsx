@@ -2,8 +2,11 @@ import { useState } from 'react';
 import AppContainer from './components/AppContainer';
 import AudioPlayer from './components/AudioPlayer';
 import Navbar from './components/Navbar';
+import StationContext from './utils/stationContext';
+import AudioContext from './utils/audioContext';
 
 import radioStations from './assets/RadioSrc.json';
+import { Howl } from 'howler';
 
 const App = () => {
   const [station, setStation] = useState<number>(0);
@@ -16,16 +19,20 @@ const App = () => {
 
   const audioSrc = radioStations?.stations[station].source;
 
+  const audio: Howl = new Howl({
+    src: [audioSrc],
+    html5: true
+  });
+
   return (
-    <AppContainer imgSrc={imgURL}>
-      <Navbar />
-      <AudioPlayer
-        img={imgURL}
-        src={audioSrc}
-        stations={maxStations}
-        station={{ station, setStation }}
-      />
-    </AppContainer>
+    <AudioContext.Provider value={audio}>
+      <StationContext.Provider value={{ station, setStation }}>
+        <AppContainer imgSrc={imgURL}>
+          <Navbar />
+          <AudioPlayer img={imgURL} stations={maxStations} station={{ station, setStation }} />
+        </AppContainer>
+      </StationContext.Provider>
+    </AudioContext.Provider>
   );
 };
 
