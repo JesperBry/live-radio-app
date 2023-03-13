@@ -11,7 +11,7 @@ const AppContainer = ({ children, imgSrc }: Props) => {
       className={`w-full h-screen bg-cover bg-center`}
       style={{ backgroundImage: `url(${imgSrc})` }}
     >
-      <div className="w-full h-full flex flex-col justify-center items-center backdrop-blur-2xl bg-neutral-800/90">
+      <div className="w-full h-full flex flex-col justify-center items-center backdrop-blur-2xl bg-neutral-800/80">
         {children}
       </div>
     </div>

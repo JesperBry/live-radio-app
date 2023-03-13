@@ -71,6 +71,30 @@
       "brand": "P24-7",
       "source": "https://live-bauerno.sharp-stream.com/p247mix_no_aac?aw_0_1st.playerid=mytuner_com&aw_0_1st.skey=1678710921",
       "station_image": "p24-7_mix.webp"
+    },
+    {
+      "name": "Radio Metro",
+      "brand": "Radio Metro",
+      "source": "https://stream.oneplay.no/romerike128",
+      "station_image": "radio_metro.webp"
+    },
+    {
+      "name": "NRK P1+",
+      "brand": "NRK",
+      "source": "https://lyd.nrk.no/nrk_radio_p1pluss_mp3_h?_hdr=0",
+      "station_image": "nrk_p1-pluss.webp"
+    },
+    {
+      "name": "NRK P2",
+      "brand": "NRK",
+      "source": "https://lyd.nrk.no/nrk_radio_p2_mp3_h",
+      "station_image": "nrk_p2.webp"
+    },
+    {
+      "name": "Radio topp 40",
+      "brand": "Radio topp 40",
+      "source": "https://live-bauerno.sharp-stream.com/top40_no_mp3",
+      "station_image": "radio_topp-40.webp"
     }
   ]
 }
