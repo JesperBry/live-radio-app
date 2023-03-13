@@ -3,9 +3,10 @@ import Backward from '@renderer/assets/icons/Backward';
 import Forward from '@renderer/assets/icons/Forward';
 import Pause from '@renderer/assets/icons/Pause';
 import Play from '@renderer/assets/icons/Play';
+import { Howl } from 'howler';
 
 interface Props {
-  audio: HTMLAudioElement;
+  audio: Howl;
   stations: number;
   station: {
     station: number;
@@ -18,7 +19,7 @@ const AudioControls = ({ audio, station, stations }: Props) => {
 
   const handlePlayPause = () => {
     if (audio !== null) {
-      if (audio?.paused) {
+      if (!audio?.playing()) {
         audio.play();
         setPlaying(true);
       } else {
@@ -28,10 +29,10 @@ const AudioControls = ({ audio, station, stations }: Props) => {
     }
   };
 
-  console.log(station.station, stations - 1);
   const nextStation = () => {
     if (station.station < stations - 1) {
       setPlaying(false);
+      audio.pause();
       station.setStation(station.station + 1);
     }
   };
@@ -39,6 +40,7 @@ const AudioControls = ({ audio, station, stations }: Props) => {
   const previousStation = () => {
     if (station.station > 0) {
       setPlaying(false);
+      audio.pause();
       station.setStation(station.station - 1);
     }
   };
