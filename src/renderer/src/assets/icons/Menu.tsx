@@ -1,4 +1,3 @@
-import React from 'react';
 import { IconProps } from './@types';
 
 const Menu = ({ className, size }: IconProps) => {

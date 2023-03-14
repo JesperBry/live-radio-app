@@ -1,5 +1,5 @@
 appId: com.electron.app
-productName: radio-app
+productName: Live radio
 directories:
   buildResources: build
 files:
@@ -12,7 +12,7 @@ asarUnpack:
   - resources/*
 afterSign: build/notarize.js
 win:
-  executableName: radio-app
+  executableName: Live radio
 nsis:
   artifactName: ${name}-${version}-setup.${ext}
   shortcutName: ${productName}
