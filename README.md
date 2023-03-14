@@ -1,3 +1,5 @@
+<img src="https://github.com/JesperBry/live-radio-app/blob/main/github_assets/logo.png" alt="screenshot"/>
+<br/>
 # Live radio
 
 An Electron application with React and TypeScript.
