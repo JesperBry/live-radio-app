@@ -1,3 +1,25 @@
+<!-- PROJECT LOGO -->
+<br />
+<p align="center">
+  <a href="https://github.com/JesperBry/live-radio-app">
+    <img src="https://github.com/JesperBry/live-radio-app/blob/main/github_assets/logo.png" alt="Logo" width="10%" height="auto">
+  </a>
+
+  <h3 align="center">Live radio</h3>
+
+  <p align="center">
+    Live streaming norwegian radio
+    <br />
+    <a href="https://github.com/JesperBry/live-radio-app/releases"><strong>Download »</strong></a>
+    <br />
+  </p>
+  <p align="center">
+  <img src="https://img.shields.io/github/v/release/JesperBry/live-radio-app?style=flat-square" />
+  <img alt="GitHub All Releases" src="https://img.shields.io/github/downloads/JesperBry/live-radio-app/total?style=flat-square">
+  <img alt="GitHub issues" src="https://img.shields.io/github/issues/JesperBry/live-radio-app?style=flat-square">
+  </p>
+</p>
+
 # Live radio
 
 An Electron application with React and TypeScript.
