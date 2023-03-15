@@ -6,5 +6,5 @@ debug:
 build-all:
 	npm run build:mac
 	npm run build:linux
-	npm run build: win
+	npm run build:win
 
