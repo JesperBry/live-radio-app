@@ -4,7 +4,7 @@ import Forward from '@renderer/assets/icons/Forward';
 import Pause from '@renderer/assets/icons/Pause';
 import Play from '@renderer/assets/icons/Play';
 import AudioContext from '@renderer/utils/audioContext';
-
+import AudioLoader from './AudioLoader';
 interface Props {
   stations: number;
   station: {
@@ -17,8 +17,17 @@ const AudioControls = ({ station, stations }: Props) => {
   const [isPlaying, setPlaying] = useState<boolean>(false);
   const [disableNext, setDisableNext] = useState<boolean>(false);
   const [disablePrev, setDisablePrev] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const disableStyle = 'opacity-50 cursor-not-allowed';
   const audio = useContext(AudioContext);
+
+  audio.once('play', () => {
+    setIsLoading(true);
+  });
+
+  audio.once('pause', () => {
+    setIsLoading(false);
+  });
 
   const handlePlayPause = () => {
     if (audio !== null) {
@@ -70,36 +79,39 @@ const AudioControls = ({ station, stations }: Props) => {
   };
 
   return (
-    <div className="flex p-8 space-x-8">
-      <button
-        onClick={() => previousStation()}
-        className={`transform active:scale-75 transition-transform ${
-          disablePrev ? disableStyle : ''
-        }`}
-        disabled={disablePrev}
-      >
-        <Backward size="1.5rem" className="text-neutral-50" />
-      </button>
-      <button
-        onClick={() => handlePlayPause()}
-        className="transform active:scale-75 transition-transform"
-      >
-        {!isPlaying ? (
-          <Play size="2.5rem" className="text-neutral-50" />
-        ) : (
-          <Pause size="2.5rem" className="text-neutral-50" />
-        )}
-      </button>
-      <button
-        onClick={() => nextStation()}
-        className={`transform active:scale-75 transition-transform ${
-          disableNext ? disableStyle : ''
-        }`}
-        disabled={disableNext}
-      >
-        <Forward size="1.5rem" className="text-neutral-50" />
-      </button>
-    </div>
+    <>
+      <AudioLoader isLoading={isLoading} isPaused={isPlaying} />
+      <div className="flex p-8 space-x-8">
+        <button
+          onClick={() => previousStation()}
+          className={`transform active:scale-75 transition-transform ${
+            disablePrev ? disableStyle : ''
+          }`}
+          disabled={disablePrev}
+        >
+          <Backward size="1.5rem" className="text-neutral-50" />
+        </button>
+        <button
+          onClick={() => handlePlayPause()}
+          className="transform active:scale-75 transition-transform"
+        >
+          {!isPlaying ? (
+            <Play size="2.5rem" className="text-neutral-50" />
+          ) : (
+            <Pause size="2.5rem" className="text-neutral-50" />
+          )}
+        </button>
+        <button
+          onClick={() => nextStation()}
+          className={`transform active:scale-75 transition-transform ${
+            disableNext ? disableStyle : ''
+          }`}
+          disabled={disableNext}
+        >
+          <Forward size="1.5rem" className="text-neutral-50" />
+        </button>
+      </div>
+    </>
   );
 };
 

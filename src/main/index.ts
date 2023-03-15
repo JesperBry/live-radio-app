@@ -18,6 +18,8 @@ function createWindow(): void {
   });
 
   mainWindow.on('ready-to-show', () => {
+    const { nativeTheme } = require('electron');
+    nativeTheme.themeSource = 'dark';
     mainWindow.show();
   });
 

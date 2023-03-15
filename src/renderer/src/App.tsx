@@ -4,9 +4,9 @@ import AudioPlayer from './components/AudioPlayer';
 import Navbar from './components/Navbar';
 import StationContext from './utils/stationContext';
 import AudioContext from './utils/audioContext';
+import { Howl } from 'howler';
 
 import radioStations from './assets/RadioSrc.json';
-import { Howl } from 'howler';
 
 const App = () => {
   const [station, setStation] = useState<number>(0);
