@@ -1,6 +1,6 @@
 {
   "name": "radio-app",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Radio",
   "main": "./out/main/index.js",
   "author": "Jesper Brynildsen",
