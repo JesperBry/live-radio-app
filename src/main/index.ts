@@ -2,6 +2,7 @@ import { app, shell, BrowserWindow, ipcMain, dialog } from 'electron';
 import { join } from 'path';
 import { electronApp, optimizer, is } from '@electron-toolkit/utils';
 import icon from '../../resources/icon.png?asset';
+import { autoUpdater, UpdateDownloadedEvent } from 'electron-updater';
 
 function createWindow(): void {
   // Create the browser window.
@@ -45,8 +46,35 @@ app.whenReady().then(() => {
   // Set app user model id for windows
   electronApp.setAppUserModelId('com.electron');
 
+  // Check for updates when ready:
+  autoUpdater.checkForUpdates();
+
   ipcMain.handle('dialog', (_event, method, params) => {
     dialog[method](params);
+  });
+
+  autoUpdater.on('update-available', (_event) => {
+    const dialogOpts = {
+      type: 'info',
+      buttons: ['Ok'],
+      title: 'Update Available',
+      message: 'A new version download started!',
+      detail: 'The app will be restarted to install the update.'
+    };
+    dialog.showMessageBox(dialogOpts);
+  });
+
+  autoUpdater.on('update-downloaded', (_event) => {
+    const dialogOpts = {
+      type: 'info',
+      buttons: ['Restart', 'Later'],
+      title: 'Application Update',
+      message: 'A new version has been downloaded!',
+      detail: 'Restart the application to apply the updates.'
+    };
+    dialog.showMessageBox(dialogOpts).then((returnValue) => {
+      if (returnValue.response === 0) autoUpdater.quitAndInstall();
+    });
   });
 
   // Default open or close DevTools by F12 in development
