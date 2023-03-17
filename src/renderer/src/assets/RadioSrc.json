@@ -167,6 +167,42 @@
       "brand": "Kiss",
       "source": "https://live-bauerno.sharp-stream.com/kiss_no_mp3",
       "station_image": "kiss.webp"
+    },
+    {
+      "name": "P24-7 KOS",
+      "brand": "KOS",
+      "source": "https://live-bauerno.sharp-stream.com/p247kos_no_mp3",
+      "station_image": "p24-7_kos.webp"
+    },
+    {
+      "name": "P6 Rock",
+      "brand": "P4",
+      "source": "https://p6.p4groupaudio.com/P06_MM",
+      "station_image": "p6_rock.webp"
+    },
+    {
+      "name": "P8 POP",
+      "brand": "P4",
+      "source": "https://p8.p4groupaudio.com/P08_MM",
+      "station_image": "p8_pop.webp"
+    },
+    {
+      "name": "P9 Retro",
+      "brand": "P4",
+      "source": "https://p9.p4groupaudio.com/P09_MM",
+      "station_image": "p9_retro.webp"
+    },
+    {
+      "name": "P10 Country",
+      "brand": "P4",
+      "source": "https://p10.p4groupaudio.com/P10_MM",
+      "station_image": "p10_country.webp"
+    },
+    {
+      "name": "Radio Vinyl",
+      "brand": "Radio Vinyl",
+      "source": "https://live-bauerno.sharp-stream.com/vinyl_no_mp3",
+      "station_image": "vinyl.webp"
     }
   ]
 }
