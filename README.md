@@ -26,9 +26,9 @@ An Electron application with React and TypeScript.
 
 Streaming norwegian live radio
 
-[![Win]](https://github.com/JesperBry/live-radio-app/releases/download/v1.2.0/radio-app-1.2.0-setup.exe)
-[![Apple]](https://github.com/JesperBry/live-radio-app/releases/download/v1.2.0/radio-app-1.2.0.dmg)
-[![Linux]](https://github.com/JesperBry/live-radio-app/releases/download/v1.2.0/radio-app_1.2.0_amd64.deb)
+[![Win]](https://github.com/JesperBry/live-radio-app/releases/download/v1.2.1/radio-app-1.2.1-setup.exe)
+[![Apple]](https://github.com/JesperBry/live-radio-app/releases/download/v1.2.1/radio-app-1.2.1.dmg)
+[![Linux]](https://github.com/JesperBry/live-radio-app/releases/download/v1.2.1/radio-app_1.2.1_amd64.deb)
 
 [Win]: https://img.shields.io/badge/Download-0078D6?style=for-the-badge&logoColor=white&logo=Windows
 [Apple]: https://img.shields.io/badge/Download-0078D6?style=for-the-badge&logoColor=white&logo=Apple
