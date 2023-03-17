@@ -21,38 +21,44 @@ const AudioControls = ({ station, stations }: Props) => {
   const disableStyle = 'opacity-50 cursor-not-allowed';
   const audio = useContext(AudioContext);
 
-  audio.once('play', () => {
-    setIsLoading(true);
-  });
-
   audio.once('pause', () => {
     setIsLoading(false);
   });
 
+  audio.once('play', () => {
+    setIsLoading(true);
+  });
+
+  const play = () => {
+    audio.play();
+    setPlaying(true);
+  };
+
+  const pause = () => {
+    audio.pause();
+    setPlaying(false);
+  };
+
   const handlePlayPause = () => {
     if (audio !== null) {
       if (!audio?.playing()) {
-        audio.play();
-        setPlaying(true);
+        play();
       } else {
-        audio.pause();
-        setPlaying(false);
+        pause();
       }
     }
   };
 
   const nextStation = () => {
     if (station.station < stations - 1) {
-      setPlaying(false);
-      audio.pause();
+      pause();
       station.setStation(station.station + 1);
     }
   };
 
   const previousStation = () => {
     if (station.station > 0) {
-      setPlaying(false);
-      audio.pause();
+      pause();
       station.setStation(station.station - 1);
     }
   };
@@ -83,6 +89,7 @@ const AudioControls = ({ station, stations }: Props) => {
       <AudioLoader isLoading={isLoading} isPaused={isPlaying} />
       <div className="flex p-8 space-x-8">
         <button
+          title="Previous station"
           onClick={() => previousStation()}
           className={`transform active:scale-75 transition-transform ${
             disablePrev ? disableStyle : ''
@@ -102,6 +109,7 @@ const AudioControls = ({ station, stations }: Props) => {
           )}
         </button>
         <button
+          title="Next station"
           onClick={() => nextStation()}
           className={`transform active:scale-75 transition-transform ${
             disableNext ? disableStyle : ''

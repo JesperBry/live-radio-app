@@ -7,6 +7,7 @@ import AudioContext from './utils/audioContext';
 import { Howl } from 'howler';
 
 import radioStations from './assets/RadioSrc.json';
+import { messageDialog } from './utils/dialog';
 
 const App = () => {
   const [station, setStation] = useState<number>(0);
@@ -22,7 +23,27 @@ const App = () => {
 
   const audio: Howl = new Howl({
     src: [audioSrc],
-    html5: true
+    html5: true,
+    onloaderror: () => {
+      audio.once('loaderror', () => {
+        messageDialog({
+          type: 'error',
+          title: 'Loading error',
+          message: 'Something went wrong while loading the audio'
+        });
+        audio.stop();
+      });
+    },
+    onplayerror: () => {
+      audio.once('playerror', () => {
+        messageDialog({
+          type: 'error',
+          title: 'Play error',
+          message: 'Something went wrong while playing the audio'
+        });
+        audio.stop();
+      });
+    }
   });
 
   return (
