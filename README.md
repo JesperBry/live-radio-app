@@ -2,10 +2,8 @@
 <br />
 <p align="center">
   <a href="https://github.com/JesperBry/live-radio-app">
-    <img src="https://github.com/JesperBry/live-radio-app/blob/main/github_assets/logo.png" alt="Logo" width="10%" height="auto">
+    <img src="https://github.com/JesperBry/live-radio-app/assets/25281182/c95a3bfb-d4e2-4504-bdef-37b34b448d85" alt="Logo" width="20%" height="auto">
   </a>
-
-  <h3 align="center">Live radio</h3>
 
   <p align="center">
     Live streaming norwegian radio
